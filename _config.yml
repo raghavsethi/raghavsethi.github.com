@@ -1,0 +1,21 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Raghav Sethi
+description:      ''
+url:              http://raghavsethi.org
+
+paginate:         5
+paginate_path:    "/notes/page:num"
+permalink: 		  "/notes/:categories/:year/:month/:day/:title"
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/poole/hyde

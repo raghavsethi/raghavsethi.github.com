@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Raghav Sethi</title>
+ <link href="http://raghavsethi.org/atom.xml" rel="self"/>
+ <link href="http://raghavsethi.org/"/>
+ <updated>2014-10-16T09:58:21-04:00</updated>
+ <id>http://raghavsethi.org</id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>SILT (SOSP ’11)</title>
+   <link href="http://raghavsethi.org/notes/2014/10/15/silt"/>
+   <updated>2014-10-15T00:00:00-04:00</updated>
+   <id>http://raghavsethi.org/notes/2014/10/15/silt</id>
+   <content type="html">&lt;p class=&quot;meta&quot;&gt; « This post is part of a series summarizing some interesting distributed systems. The motivation is to enhance my understanding of these systems and organize my personal notes. I&#39;m inspired by the (excellent) blog &lt;a href=&quot;http://the-paper-trail.org/&quot;&gt;The Paper Trail&lt;/a&gt;. » &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SILT: A Memory-Efficient, High-Performance Key-Value Store&lt;/strong&gt;
+&lt;em&gt;&lt;a href=&quot;http://www.cs.cmu.edu/%7Ehl/&quot;&gt;Hyeontaek Lim&lt;/a&gt;, &lt;a href=&quot;http://www.cs.cmu.edu/%7Ebinfan/&quot;&gt;Bin Fan&lt;/a&gt;, &lt;a href=&quot;http://www.cs.cmu.edu/%7Edga/&quot;&gt;David G. Andersen&lt;/a&gt;, &lt;a href=&quot;http://www.pittsburgh.intel-research.net/people/kaminsky/&quot;&gt;Michael Kaminsky&lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;(SOSP ’11)&lt;/em&gt; [&lt;a href=&quot;https://www.cs.cmu.edu/%7Edga/papers/silt-sosp2011.pdf&quot;&gt;cs.cmu.edu&lt;/a&gt;]&lt;/p&gt;
+
+&lt;h3&gt;Elevator Pitch&lt;/h3&gt;
+
+&lt;p&gt;SILT is a memory efficient &lt;em&gt;single-node key-value store designed for flash storage&lt;/em&gt;. It is able to deliver 30-40K QPS on severely memory constrained nodes (8GB of DRAM!). The authors achieve this by combining three separate data structures optimized to deliver fast reads &lt;em&gt;and&lt;/em&gt; writes. These structures are also optimized for low write and read amplification, which is important to optimize flash lifetime and also deliver excellent worst-case latencies.&lt;/p&gt;
+
+&lt;h3&gt;Key Ideas&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;SILT (like LevelDB/RocksDB, and BigTable) uses a multi-store system to optimize for both high read and write rates, with offline operations converting (merging) one type of store to another. The &amp;#39;LogStore&amp;#39; is write-optimized and append-only, and indexed by a hash table that uses partial-key cuckoo hashing. A host of extremely interesting optimizations, (such as storing the second hash value as the key &amp;#39;tag&amp;#39;, instead of the entire key) make this extremely efficient in memory and compute. However, keeping pointers around is still too inefficient to use these for too many writes.&lt;/li&gt;
+&lt;li&gt;SILT efficiently converts these LogStores into a second interstitial &amp;#39;HashStore&amp;#39; data structure, which is simply an on-disk hash table. However, it uses an optimized hash-filter that is more memory efficient than Bloom filters. The HashStore structure helps amortize the expensive offline merging process into the the next level data structure, as several HashStores can exist at once that are converted in one operation.&lt;/li&gt;
+&lt;li&gt;HashStores are merged into a &amp;#39;SortedStore&amp;#39;, which is an entropy-coded trie data structure on flash. The authors also develop a highly-optimized recursive representation to store this trie that avoids pointers completely and keeps read-amplification to a minimum. Constant-time lookups are ensured by partitioning the data into multiple tries based on the higher order bits of the key. While a new SortedStore is being constructed, the old one continues to serve requests until it is atomically replaced.&lt;/li&gt;
+&lt;li&gt;Additionally, the parameters for each of these stores can be tuned to suit the hardware or to reach the desired level of read or write amplification.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Overall&lt;/h3&gt;
+
+&lt;p&gt;SILT was one of the early papers to use a multi-store approach, which relies on offline operations to convert stores to each other, however in this case the conversion mechanism and triggers are also well optimized and tunable. The authors develop clever data structures such as the partial-key based cuckoo hash table and the recursively represented entropy-coded trie, which are (even individually) extremely useful to system designers. Although SILT can support tens of thousands of QPS on a single commodity node, the most interesting result to me was that SILT can saturate flash IO capacity, which is clearly an excellent place to be.&lt;/p&gt;
+
+&lt;p class=&quot;meta&quot;&gt;Comments? Hit me up &lt;a href=&quot;http://twitter.com/raghavsethi&quot;&gt;@raghavsethi&lt;/a&gt; on Twitter.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>MICA (NSDI ’14)</title>
+   <link href="http://raghavsethi.org/notes/2014/09/28/mica"/>
+   <updated>2014-09-28T00:00:00-04:00</updated>
+   <id>http://raghavsethi.org/notes/2014/09/28/mica</id>
+   <content type="html">&lt;p class=&quot;meta&quot;&gt; « This post is part of a series summarizing some interesting distributed systems. The motivation is to enhance my understanding of these systems and organize my personal notes. I&#39;m inspired by the (excellent) blog &lt;a href=&quot;http://the-paper-trail.org/&quot;&gt;The Paper Trail&lt;/a&gt;. » &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;MICA: A Holistic Approach to Fast In-Memory Key-Value Storage&lt;/strong&gt;
+&lt;em&gt;&lt;a href=&quot;http://www.cs.cmu.edu/%7Ehl/&quot;&gt;Hyeontaek Lim&lt;/a&gt;, &lt;a href=&quot;http://ina.kaist.ac.kr/%7Edongsuh/&quot;&gt;Dongsu Han&lt;/a&gt;, &lt;a href=&quot;http://www.cs.cmu.edu/%7Edga/&quot;&gt;David G. Andersen&lt;/a&gt;, &lt;a href=&quot;http://www.pittsburgh.intel-research.net/people/kaminsky/&quot;&gt;Michael Kaminsky&lt;/a&gt;&lt;/em&gt;
+&lt;em&gt;(NSDI ’14)&lt;/em&gt; [&lt;a href=&quot;https://www.usenix.org/conference/nsdi14/technical-sessions/presentation/lim&quot;&gt;usenix.org&lt;/a&gt;]&lt;/p&gt;
+
+&lt;h3&gt;Elevator Pitch&lt;/h3&gt;
+
+&lt;p&gt;MICA achieves ~10x the performance of existing &lt;em&gt;single-server key-value stores&lt;/em&gt; by designing from the ground-up for concurrency, optimizing for performance at every layer of the stack, and inventing useful new data-structures. Unlike many other similar systems, MICA offers excellent performance to write-heavy workloads as well.&lt;/p&gt;
+
+&lt;h3&gt;Key Ideas&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;MICA exploits CPU parallelism to partition data effectively. This essentially means that every partition can only be written to by a single core (and read by single or multiple cores depending on the mode of operation). While this is generally thought to cause issues for skewed workloads, the authors show that performance concerns are largely nullified by the higher cache hit-rate and more efficient packet I/O for popular partitions.&lt;/li&gt;
+&lt;li&gt;Using technology designed for software routers, MICA achieves zero-copy packet I/O by keeping all network functionality in userspace using Intel’s &lt;a href=&quot;http://www.intel.com/content/www/us/en/intelligent-systems/intel-technology/packet-processing-is-enhanced-with-software-from-intel-dpdk.html&quot;&gt;DPDK&lt;/a&gt;. Additionally, by using flow-level core affinity in conjunction with a smart(er) client library, requests for data can be directed to the right core by the NIC.&lt;/li&gt;
+&lt;li&gt;MICA can function in cache-mode or store-mode, but the performance of the two modes is surprisingly similar given all the optimizations in cache-mode. Essentially, cache-mode uses a circular-log and a lossy hash-table, which is augmented by bulk chaining into a lossless hash-table for store-mode. The data-structures are interesting enough to warrant more discussion than a short blog-post permits, but they are simpler than those seen in systems such as SILT, and are somewhat similar to LevelDB/RocksDB LSM trees.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Overall&lt;/h3&gt;
+
+&lt;p&gt;Using the techniques above plus about a half-dozen other excellent optimizations, the authors show that MICA can support tens of millions of operations per second on commodity server hardware without breaking a sweat. This paper is a brilliant example of what is possible when you can design and optimize a system full-stack.&lt;/p&gt;
+
+&lt;p class=&quot;meta&quot;&gt;Comments? Hit me up &lt;a href=&quot;http://twitter.com/raghavsethi&quot;&gt;@raghavsethi&lt;/a&gt; on Twitter.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

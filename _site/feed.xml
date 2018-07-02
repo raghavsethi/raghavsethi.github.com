@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-
- <title>Raghav Sethi</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2019-05-22T21:11:45-07:00</updated>
- <id>http://localhost:4000</id>
- <author>
-   <name></name>
-   <email></email>
- </author>
-
- 
- <entry>
-   <title>Why metrics are hard (and what to do about it)</title>
-   <link href="http://localhost:4000/blog/2018/07/01/why-metrics-are-hard"/>
-   <updated>2018-07-01T00:00:00-07:00</updated>
-   <id>http://localhost:4000/blog/2018/07/01/why-metrics-are-hard</id>
-   <content type="html">&lt;p&gt;Being metrics driven is a great way to build a software engineering culture that is empowers engineers and rewards for impact, while also helping teams remain aligned with organizational goals. Engineers with the autonomy to pick projects and settle debates using data and metrics are implicitly motivated to work on the most impactful projects. For this culture to work effectively, though, it’s important to pick the right metrics.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-05-22T21:11:45-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Raghav Sethi</title><subtitle></subtitle><entry><title type="html">Why metrics are hard (and what to do about it)</title><link href="http://localhost:4000/blog/2018/07/01/why-metrics-are-hard" rel="alternate" type="text/html" title="Why metrics are hard (and what to do about it)" /><published>2018-07-01T00:00:00-07:00</published><updated>2018-07-01T00:00:00-07:00</updated><id>http://localhost:4000/blog/2018/07/01/why-metrics-are-hard</id><content type="html" xml:base="http://localhost:4000/blog/2018/07/01/why-metrics-are-hard">&lt;p&gt;Being metrics driven is a great way to build a software engineering culture that is empowers engineers and rewards for impact, while also helping teams remain aligned with organizational goals. Engineers with the autonomy to pick projects and settle debates using data and metrics are implicitly motivated to work on the most impactful projects. For this culture to work effectively, though, it’s important to pick the right metrics.&lt;/p&gt;
 
 &lt;p&gt;Unfortunately, this is surprisingly difficult to do. All metrics are proxies for real progress, and all proxies have inherent flaws and tradeoffs. Improving the process for choosing and iterating on metrics requires that we first understand some of these pitfalls:&lt;/p&gt;
 
@@ -57,9 +38,4 @@
 
 &lt;p&gt;This process is likely to get you to the point where you end up with the most meaningful high-level metric that is &lt;a href=&quot;https://medium.com/@Pinterest_Engineering/4-steps-to-better-goals-and-metrics-dfe7ad7b2c9c&quot;&gt;operational&lt;/a&gt; (one your team can affect). This addresses the most common criticisms of a metric — that it is either too high level to be operational, or too low-level to be meaningful. It’s much more straightforward to get all stakeholders to buy in and agree to use this kind of metric to evaluate future projects. It also helps to build consensus when communications about metrics are accompanied with language that recognizes the tradeoffs that have been made, and continually reiterates that the metric is just one of the many ways to measure progress.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Thanks to Jeff Marcus, Rohan Katyal, Koulick Ghosh, Vedashree Bankar and several others who provided feedback and suggestions on earlier drafts of this post.&lt;/em&gt;&lt;/p&gt;
-</content>
- </entry>
- 
-
-</feed>
+&lt;p&gt;&lt;em&gt;Thanks to Jeff Marcus, Rohan Katyal, Koulick Ghosh, Vedashree Bankar and several others who provided feedback and suggestions on earlier drafts of this post.&lt;/em&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Being metrics driven is a great way to build a software engineering culture that is empowers engineers and rewards for impact, while also helping teams remain aligned with organizational goals. Engineers with the autonomy to pick projects and settle debates using data and metrics are implicitly motivated to work on the most impactful projects. For this culture to work effectively, though, it’s important to pick the right metrics.</summary></entry></feed>

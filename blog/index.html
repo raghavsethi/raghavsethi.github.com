@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Notes
+title: Blog
 ---
 
 <div class="posts">
@@ -12,8 +12,8 @@ title: Notes
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
+    <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+    <p class="meta"> « Opinions are my own and not the views of my employer. » </p>
     {{ post.content }}
   </div>
   {% endfor %}

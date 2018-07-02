@@ -32,7 +32,7 @@
  */
 
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Cardo", serif;
 }
 @media (min-width: 48rem) {
   html {
@@ -82,7 +82,7 @@ html {
 /* All H1s are at the top of the page */
 h1 {
   margin-top: 0;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Prata', serif;
   font-size: 2.5rem;
   font-weight: 400;
 }
@@ -110,7 +110,7 @@ h1 {
 }
 
 .sidebar .lead {
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Prata', serif;
 	font-size: 1.2rem;
 }
 
@@ -287,4 +287,23 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+/* Custom */
+.theme-base-gray .sidebar {
+  background-color: #1e2831;
+}
+
+.theme-base-gray .content a,
+.theme-base-gray .related-posts li a:hover {
+  color: #59748c;
+}
+
+.theme-base-gray .content h1 {
+  color: #284865;
+}
+
+
+.theme-base-gray h1 a:hover {
+  text-decoration: none;
 }

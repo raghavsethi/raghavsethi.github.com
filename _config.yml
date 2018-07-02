@@ -1,6 +1,6 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
@@ -11,11 +11,16 @@ description:      ''
 url:              http://raghavsethi.org
 
 paginate:         5
-paginate_path:    "/notes/page:num"
-permalink: 		  "/notes/:categories/:year/:month/:day/:title"
+paginate_path:    "/blog/page:num"
+permalink: 		    "/blog/:categories/:year/:month/:day/:title"
 
 # Custom vars
 version:          2.0.0
 
 github:
   repo:           https://github.com/poole/hyde
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - redcarpet

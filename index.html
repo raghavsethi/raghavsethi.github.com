@@ -6,19 +6,68 @@ title: Home
 <h1>{{ site.title }}</h1>
 <p />
 
-<img src="public/images/profile.jpg" style="float:left; margin-right:10px; margin-bottom:10px; margin-top:15px;"/>
+<img src="public/images/profile.jpg" style="float:left; margin-right:10px; margin-bottom:10px; margin-top:15px; width:190px; height:190px"/>
 <p>
-  <strong>I'm a software engineer at Facebook, where I work on <a href="http://www.prestodb.io">Presto</a>, a distributed SQL query engine.</strong>
+  <strong>I'm a software engineer at <a href="https://www.airtable.com">Airtable</a>, a tool to democratize software creation.</strong>
 </p>
 <p>
-   I'm passionate about building software products that can improve lives and change the way people do business. My work on distributed systems allows me to make such software smarter, faster, cheaper and more accessible. 
+  Previously, I was at Facebook, where I worked on Presto, an <a href="http://www.prestosql.io">open-source distributed SQL query engine</a>.
+  Before that, I was a grad student in Computer Science at Princeton, advised by <a href="http://www.cs.princeton.edu/~mfreed/">Dr. Michael Freedman</a>. I completed my bachelor's degree at <a href="http://www.iiitd.ac.in">IIIT-Delhi</a>.
 </p>
 <p>
-  Previously, I was grad student in Computer Science at <a href="http://www.cs.princeton.edu">Princeton</a>, advised by <a href="http://www.cs.princeton.edu/~mfreed/">Dr. Michael Freedman</a>, and part of the Princeton <a href="http://sns.cs.princeton.edu/">S* Network Systems group</a>. I completed my bachelor's degree at <a href="http://www.iiitd.ac.in">IIIT-Delhi</a>. My <a href="http://raghavsethi.org/public/docs/Resume_RaghavSethi_Web.pdf">resume</a> has more details.
+    Send me an <a href="http://www.google.com/recaptcha/mailhide/d?k=01RkgkGZV-zNAXBWAjbuG9oA==&c=U3Y8EzuPJWIFPz4PsLvg9C7UTO4-rWil4SIgtA_FO3I=">email</a> (<a href="https://keybase.io/raghavsethi">GPG</a>), or follow me on <a href="http://www.twitter.com/raghavsethi">Twitter</a>. Sometimes I take pictures that <a href="http://photoblog.raghavsethi.org">turn out okay</a>.
+</p>
+<p />
+
+<h3>Notes</h3>
+
+<p />
+<p />
+{% for post in site.posts %}
+    <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;&nbsp;<small>{{ post.date | date: "%B %e, %Y" }}</small><br \>
+{% endfor %}
+<p />
+
+<h3>Papers</h3>
+
+<p />
+<p />
+
 <p>
-  Send me an <a href="http://www.google.com/recaptcha/mailhide/d?k=01RkgkGZV-zNAXBWAjbuG9oA==&c=U3Y8EzuPJWIFPz4PsLvg9C7UTO4-rWil4SIgtA_FO3I=">email</a>, or follow me on <a href="http://www.twitter.com/raghavsethi">Twitter</a>. If by chance you need to share top-secret information with me, here's my <a href="https://keybase.io/raghavsethi">GPG public key</a>. I try to take lots of pictures, and sometimes they <a href="http://photoblog.raghavsethi.org">turn out okay</a>.
+	Presto: SQL on Everything
+	<a href="https://research.fb.com/publications/presto-sql-on-everything/">[web]</a>
+	<br />
+	<small>
+		<strong>Raghav Sethi</strong>, Martin Traverso, Dain Sundstrom, David Phillips, Wenlei Xie, Yutian Sun, Nezih Yigitbasi, Haozhun Jin, Eric Hwang, Nileema Shingte, Christopher Berner. In IEEE International Conference on Data Engineering (ICDE), Macau SAR. 2019.
+	</small>
 </p>
 
-<a href="http://www.princeton.edu"><img src="public/images/princeton.jpg" style="display:inline;"/></a>&nbsp;&nbsp;&nbsp;<a href="http://www.iiitd.ac.in"><img src="public/images/iiitd.jpg" style="display:inline;" /></a>
+<p>
+	Be Fast, Cheap and in Control with SwitchKV
+	<a href="https://www.usenix.org/system/files/conference/nsdi16/nsdi16-paper-li_xiaozhou-update.pdf">[pdf]</a>
+	<a href="https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/li-xiaozhou">[web]</a>
+	<br />
+	<small>
+		Xiaozhou Li, <strong>Raghav Sethi</strong>, Michael Kaminsky, David G. Andersen and Michael J. Freedman. In 13th USENIX Symposium on Networked Systems Design and Implementation (NSDI), Santa Clara, CA. 2016.
+	</small>
+</p>
+
+<p>
+	WhACKY! - What Anyone Could Know About You from Twitter
+	<a href="/assets/docs/pst12.pdf">[pdf]</a>
+	<br />
+	<small>
+		Denzil Correa, Ashish Surekha and <strong>Raghav Sethi</strong>. In Proceedings of the 10th Annual Conference on Privacy, Security and Trust (PST), Paris, France. 2012.
+	</small>
+</p>
+
+<p />
+<p />
+<p />
+<p />
+
+<div>
+	<a href="http://www.princeton.edu"><img src="public/images/princeton.jpg" style="display:inline;"/></a>&nbsp;&nbsp;&nbsp;<a href="http://www.iiitd.ac.in"><img src="public/images/iiitd.jpg" style="display:inline;" /></a>
+</div>
 
 <p class="copyright">&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
